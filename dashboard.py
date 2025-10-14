@@ -624,5 +624,12 @@ app.index_string = '''
 '''
 
 # ------------------------------------------------------------------
+# Add this line after app initialization
+server = app.server
+
+# Replace the existing __main__ block with:
 if __name__ == "__main__":
     app.run(debug=True, port=8050, host="0.0.0.0")
+else:
+    # This is needed for Vercel
+    application = server
